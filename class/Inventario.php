@@ -26,7 +26,7 @@ class Inventario
         return $this->itens;
     }
 
-    public function slotDisponivel(): int
+    public function capacidadeLivre(): int
     {
         $ocupado = 0;
         foreach ($this->itens as $item) {
@@ -37,7 +37,7 @@ class Inventario
 
     public function adicionar(Item $item): void
     {
-        if ($item->getTamanho() <= $this->slotDisponivel()) {
+        if ($item->getTamanho() <= $this->capacidadeLivre()) {
             $this->itens[] = $item;
         }
     }
